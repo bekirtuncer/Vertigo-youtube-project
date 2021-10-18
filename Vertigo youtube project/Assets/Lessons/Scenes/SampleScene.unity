@@ -123,6 +123,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &323487481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7496915570097410916, guid: 96ae16b12553c8f42b59dc56a42c4924, type: 3}
+  m_PrefabInstance: {fileID: 7496915569650804791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &323487482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323487481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abfcf9b0f4f1804c8a9aba9e8c06f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationInput: {fileID: 11400000, guid: 22ff040c747a0db4da106162790c5c4c, type: 2}
+  _towerTransform: {fileID: 1293879033}
+  _towerRotationSettings: {fileID: 11400000, guid: e0decece47fd2b74d8d6fb1c32ee5d36, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +236,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1293879033 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6066397189652173008, guid: 96ae16b12553c8f42b59dc56a42c4924, type: 3}
+  m_PrefabInstance: {fileID: 7496915569650804791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1642279869
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +253,7 @@ GameObject:
   - component: {fileID: 1642279872}
   - component: {fileID: 1642279871}
   - component: {fileID: 1642279870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,6 +343,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1197425892617531057, guid: b62dcda4f6a105c4db81d4b3086c18f1, type: 3}
+      propertyPath: _inputDataArray.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197425892617531057, guid: b62dcda4f6a105c4db81d4b3086c18f1, type: 3}
+      propertyPath: _inputDataArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 981f8b12a1c0ec44f8ea6ab6694adab7, type: 2}
+    - target: {fileID: 1197425892617531057, guid: b62dcda4f6a105c4db81d4b3086c18f1, type: 3}
+      propertyPath: _inputDataArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 22ff040c747a0db4da106162790c5c4c, type: 2}
     - target: {fileID: 6731011826202851985, guid: b62dcda4f6a105c4db81d4b3086c18f1, type: 3}
       propertyPath: m_Name
       value: InputManager
