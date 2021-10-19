@@ -123,26 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &323487481 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7496915570097410916, guid: 96ae16b12553c8f42b59dc56a42c4924, type: 3}
+--- !u!4 &307044832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8088450138941096310, guid: 96ae16b12553c8f42b59dc56a42c4924, type: 3}
   m_PrefabInstance: {fileID: 7496915569650804791}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &323487482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 323487481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9abfcf9b0f4f1804c8a9aba9e8c06f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotationInput: {fileID: 11400000, guid: 22ff040c747a0db4da106162790c5c4c, type: 2}
-  _towerTransform: {fileID: 1293879033}
-  _towerRotationSettings: {fileID: 11400000, guid: e0decece47fd2b74d8d6fb1c32ee5d36, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,11 +221,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!4 &1293879033 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6066397189652173008, guid: 96ae16b12553c8f42b59dc56a42c4924, type: 3}
-  m_PrefabInstance: {fileID: 7496915569650804791}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1642279869
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +392,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2829605791572802122, guid: 96ae16b12553c8f42b59dc56a42c4924, type: 3}
+      propertyPath: _targetTransform
+      value: 
+      objectReference: {fileID: 307044832}
     - target: {fileID: 7496915570097410915, guid: 96ae16b12553c8f42b59dc56a42c4924, type: 3}
       propertyPath: m_RootOrder
       value: 2
