@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 552329620264428784}
   - component: {fileID: 687543408542349363}
   - component: {fileID: 5516836292371561748}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TankFree_Wheel_f_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,8 @@ GameObject:
   - component: {fileID: 6131831001833390273}
   - component: {fileID: 8142365708718428186}
   - component: {fileID: 5487197739898603921}
-  m_Layer: 0
+  - component: {fileID: 1854718698567592444}
+  m_Layer: 7
   m_Name: TankFree_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,6 +180,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bd289e44a0532459faf130ef6255e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1854718698567592444
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928424598768925569}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9107852, y: 1.3211843, z: 2.6642036}
+  m_Center: {x: 0.00000035762787, y: -0.14625973, z: -0.038929224}
 --- !u!1 &2729226344200984927
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +204,7 @@ GameObject:
   - component: {fileID: 1745680513279377161}
   - component: {fileID: 8214196707635989810}
   - component: {fileID: 6610147803075943792}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TankFree_Wheel_b_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +285,7 @@ GameObject:
   - component: {fileID: 3346782474988941941}
   - component: {fileID: 2934377390555833901}
   - component: {fileID: 977478410297946800}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TankFree_Wheel_f_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +366,7 @@ GameObject:
   - component: {fileID: 6126584358769375335}
   - component: {fileID: 4929466033254549993}
   - component: {fileID: 8577817996985071621}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TankFree_Wheel_b_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
