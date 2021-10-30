@@ -43,7 +43,7 @@ namespace TopDownShooter.Inventory
             }
             else
             {
-                Debug.Log("you cant shoot now");
+                Debug.LogError("you cant shoot now");
             }
         }
     }
