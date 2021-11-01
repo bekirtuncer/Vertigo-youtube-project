@@ -26,7 +26,7 @@ namespace TopDownShooter.AI
             }
             var rotationGap = rotation.y - _targetTransform.rotation.eulerAngles.y;
             bool isGapNegative = rotationGap < 0;
-            if (Mathf.Abs(rotationGap) > 5f)
+            if (Mathf.Abs(rotationGap) > 5)
             {
                 float horizontalClamped = Mathf.Clamp(Mathf.Abs(rotationGap / 180), -1, 1);
                 Horizontal = horizontalClamped;
