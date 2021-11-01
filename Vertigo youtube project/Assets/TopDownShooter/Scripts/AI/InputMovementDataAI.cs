@@ -7,9 +7,6 @@ namespace TopDownShooter.AI
     [CreateAssetMenu(menuName = "TopDownShooter/Input/AI/Movement Input Data")]
     public class InputMovementDataAI : InputDataAI
     {
-        public Vector3 rotationDebug;
-        public Vector3 rotationDebugLocal;
-        public float rotationGapDebug;
         public override void ProcessInput()
         {
             float distance = Vector3.Distance(_targetTransform.position, _currentTarget);
@@ -23,10 +20,7 @@ namespace TopDownShooter.AI
             }
             Vector3 dir = _currentTarget - _targetTransform.position;
             var rotation = Quaternion.LookRotation(dir, Vector3.up).eulerAngles;
-            rotationDebug = rotation;
-            rotationDebugLocal = _targetTransform.rotation.eulerAngles;
             var rotationGap = Mathf.Abs(rotation.y - _targetTransform.rotation.eulerAngles.y);
-            rotationGapDebug = rotationGap;
             if (Mathf.Abs(rotationGap) > 5f)
             {
                 float horizontalClamped = Mathf.Clamp(rotationGap / 180, -1, 1);
