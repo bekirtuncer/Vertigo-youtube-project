@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopDownShooter.Inventory;
 using UnityEngine;
 
 namespace TopDownShooter.Stat
@@ -21,6 +22,6 @@ namespace TopDownShooter.Stat
     public interface IDamageble 
     {
         int InstanceId { get; }
-        void Damage(float dmg);
+        void Damage(IDamage dmg);
     }
 }
