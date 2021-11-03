@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TopDownShooter.PlayerInput
 {
-    [CreateAssetMenu(menuName = "TopDownShooter/Input/Input Data")]
+    [CreateAssetMenu(menuName = "TopDownShooter/Input/Player Input Data")]
     public class PlayerInputData : AbstractInputData
     {
         [Header("Axis Base Control")]
