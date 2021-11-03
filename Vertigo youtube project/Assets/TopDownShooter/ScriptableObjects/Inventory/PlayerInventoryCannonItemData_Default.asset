@@ -15,3 +15,6 @@ MonoBehaviour:
   _itemId: default_cannon
   _inventoryItemDataType: 0
   _prefab: {fileID: 7938125165000892303, guid: ab08a636e401cb84691711f0913ddda1, type: 3}
+  _damage: 10
+  _rpm: 1
+  _armorPenetration: 0.5

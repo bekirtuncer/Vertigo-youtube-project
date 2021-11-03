@@ -8,5 +8,7 @@ namespace TopDownShooter.Inventory
     {
         float Damage { get; }
         float ArmorPenetration { get; }
+        float TimedBaseDamageDuration { get; }
+        float TimedBaseDamage { get; }
     }
 }

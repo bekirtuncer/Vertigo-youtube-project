@@ -11,13 +11,21 @@ namespace TopDownShooter.Inventory
     {
         [SerializeField] private float _damage;
         public float Damage { get { return _damage; } }
-        [SerializeField] private float _rpm=1f;
+        
+        [SerializeField] private float _rpm = 1f;
+        public float RPM { get { return _rpm; } }
 
         [Range(0.1f, 2)]
         [SerializeField] private float _armorPenetration = 3;
         public float ArmorPenetration { get { return _armorPenetration; } }
+        
+        [Header("Timed Base Damage")]
+        [SerializeField] private float _timedBaseDamage = 0;
+        public float TimedBaseDamage { get { return _timedBaseDamage; } }
 
-        public float RPM { get { return _rpm; } }
+        [SerializeField] private float _timedBaseDamageDuration = 3;
+        public float TimedBaseDamageDuration { get { return _timedBaseDamageDuration; } }
+
         private float _lastShootTime;
         public override void Initialize(PlayerInventoryController targetPlayerInventory)
         {
