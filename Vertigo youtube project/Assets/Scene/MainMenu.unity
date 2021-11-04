@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 400277231}
   - component: {fileID: 400277230}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button_CreateRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -574,6 +574,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentState: {fileID: 1175528676}
+  _networkButtons:
+  - {fileID: 400277230}
+  - {fileID: 1049673173}
 --- !u!1 &567819129
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,7 +999,7 @@ GameObject:
   - component: {fileID: 1049673174}
   - component: {fileID: 1049673173}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Button_JoinRandomRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1221,7 +1224,7 @@ GameObject:
   - component: {fileID: 1175528677}
   - component: {fileID: 1175528676}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_NetworkState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1540,7 +1543,7 @@ GameObject:
   - component: {fileID: 1663390951}
   - component: {fileID: 1663390950}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Button_Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
