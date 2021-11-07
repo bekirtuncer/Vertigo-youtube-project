@@ -13,10 +13,17 @@ namespace TopDownShooter.UI
     {
         [SerializeField] private TextMeshProUGUI _currentState;
         [SerializeField] private Button[] _networkButtons;
+        [SerializeField] private TMP_InputField _InputField;
         private void Awake()
         {
             MessageBroker.Default.Receive<EventPlayerNetworkStateChange>().Subscribe
                 (OnPlayerNetworkState).AddTo(gameObject);
+            _InputField.onEndEdit.AddListener(OnEditEnd);
+        }
+
+        private void OnEditEnd(string arg0)
+        {
+            PhotonNetwork.playerName = arg0;
         }
 
         private void OnPlayerNetworkState(EventPlayerNetworkStateChange obj)

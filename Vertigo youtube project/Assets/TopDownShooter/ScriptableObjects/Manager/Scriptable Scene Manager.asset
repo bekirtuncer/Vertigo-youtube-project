@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c517bb644fed9fa4fb6567551dbfcb97, type: 3}
   m_Name: Scriptable Scene Manager
   m_EditorClassIdentifier: 
+  _menuScene: MainMenu
+  _gameScene: GameScene
