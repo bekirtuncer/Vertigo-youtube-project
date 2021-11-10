@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5790603fdff0dd49be315186d4e3740, type: 3}
+  m_Name: Scriptable Effect Manager
+  m_EditorClassIdentifier: 
+  _playerShootEffect: {fileID: 7851560224471472480, guid: 31877be43b219184a88da0cf6d71374a, type: 3}
