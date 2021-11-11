@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using System;
+using TopDownShooter.Inventory;
 
 namespace TopDownShooter.Network
 {
@@ -15,6 +16,7 @@ namespace TopDownShooter.Network
         private void Awake()
         {
             MessageBroker.Default.Receive<EventSceneLoaded>().Subscribe(OnSceneLoaded).AddTo(gameObject);
+            MessageBroker.Default.Receive<EventPlayerShoot>().Subscribe(OnPlayerShoot).AddTo(gameObject);
         }
 
         private void OnSceneLoaded(EventSceneLoaded obj)
@@ -29,6 +31,14 @@ namespace TopDownShooter.Network
                 default:
                     _inGameNetworkState = InGameNetworkState.NotReady;
                     break;
+            }
+        }
+
+        private void OnPlayerShoot(EventPlayerShoot obj)
+        {
+            if(obj.ShooterId == PhotonNetwork.player.ID)
+            {
+                Shoot(obj.Origin);
             }
         }
 
@@ -51,6 +61,16 @@ namespace TopDownShooter.Network
             Debug.Log("Instantiate player " + photonMessageInfo.sender.name);
             var instantaited = Instantiate(_remotePlayerPrefab);
             instantaited.SetOwnerShip(photonMessageInfo.sender, viewIdArray);
+        }
+
+        public void Shoot(Vector3 origin)
+        {
+            photonView.RPC("RPC_Shoot", PhotonTargets.Others);
+        }
+
+        public void RPC_Shoot(Vector3 origin, PhotonMessageInfo photonMessageInfo)
+        {
+            MessageBroker.Default.Publish(new EventPlayerShoot(origin, photonMessageInfo.sender.ID));
         }
     }    
 }

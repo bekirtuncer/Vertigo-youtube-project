@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1910763691050453116}
   - component: {fileID: 1910763691050453090}
   - component: {fileID: 1910763691050453089}
+  - component: {fileID: 62122397484210233}
   m_Layer: 7
   m_Name: RemotePlayer
   m_TagString: Untagged
@@ -85,8 +86,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 1910763691050453091}
-  Health: 100
-  Armor: 100
 --- !u!65 &1910763691050453091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -220,6 +219,22 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &62122397484210233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910763691050453095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ba3bdc1d7a41640a72cb17adb39133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damagebleObjectBases:
+  - {fileID: 1910763691050453119}
+  _networkPlayer: {fileID: 1910763691050453090}
+  _inventoryController: {fileID: 1910763691050453092}
 --- !u!1 &1910763691795308395
 GameObject:
   m_ObjectHideFlags: 0

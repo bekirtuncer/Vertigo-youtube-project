@@ -283,9 +283,9 @@ GameObject:
   - component: {fileID: 1172796171532388905}
   - component: {fileID: 1172796171532388918}
   - component: {fileID: 1172796171532388906}
+  - component: {fileID: 7507375334406815934}
   - component: {fileID: 4089831822125946723}
   - component: {fileID: 4921060940562546360}
-  - component: {fileID: 7507375334406815934}
   m_Layer: 7
   m_Name: LocalPlayer 1
   m_TagString: Untagged
@@ -339,6 +339,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25c291093ce2da4f9021fa27eed4339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damagebleObjectBases:
+  - {fileID: 1172796171532388918}
+  _networkPlayer: {fileID: 7507375334406815934}
   _inventoryController: {fileID: 1172796171532388909}
   _shootInput: {fileID: 11400000, guid: a3533f38777ceae4984d1d66564339cd, type: 2}
 --- !u!114 &1172796171532388919
@@ -401,8 +404,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 1172796171532388906}
-  Health: 100
-  Armor: 100
 --- !u!65 &1172796171532388906
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -416,6 +417,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7507375334406815934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172796171532388910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611a1f7b993e42b47a512438e78a5b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _photonViewsForOwnership:
+  - {fileID: 4089831822125946723}
+  - {fileID: 1962119978207907299}
 --- !u!114 &4089831822125946723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,18 +537,3 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &7507375334406815934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172796171532388910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 611a1f7b993e42b47a512438e78a5b85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _photonViewsForOwnership:
-  - {fileID: 4089831822125946723}
-  - {fileID: 1962119978207907299}

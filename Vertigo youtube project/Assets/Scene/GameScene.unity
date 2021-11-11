@@ -654,7 +654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _abstractScriptableManagerArray:
   - {fileID: 11400000, guid: 7e8c954c7104fb24a8353925656fff7b, type: 2}
-  _dontDestroyOnLoad: 1
+  - {fileID: 11400000, guid: 860e12181e271a24e9696be7aa238b5e, type: 2}
 --- !u!4 &1028077198
 Transform:
   m_ObjectHideFlags: 0
