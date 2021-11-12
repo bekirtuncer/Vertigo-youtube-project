@@ -4,6 +4,7 @@ using UnityEngine;
 using UniRx;
 using System;
 using TopDownShooter.Inventory;
+using TopDownShooter.Stat;
 
 namespace TopDownShooter.Network
 {
@@ -17,6 +18,7 @@ namespace TopDownShooter.Network
         {
             MessageBroker.Default.Receive<EventSceneLoaded>().Subscribe(OnSceneLoaded).AddTo(gameObject);
             MessageBroker.Default.Receive<EventPlayerShoot>().Subscribe(OnPlayerShoot).AddTo(gameObject);
+            MessageBroker.Default.Receive<EventPlayerGiveDamage>().Subscribe(OnPlayerGetDamage).AddTo(gameObject);
         }
 
         private void OnSceneLoaded(EventSceneLoaded obj)
@@ -36,30 +38,35 @@ namespace TopDownShooter.Network
 
         private void OnPlayerShoot(EventPlayerShoot obj)
         {
-            if(obj.ShooterId == PhotonNetwork.player.ID)
+            if(obj.Stat.IsLocalPlayer)
             {
                 Shoot(obj.Origin);
             }
         }
 
+        private void OnPlayerGetDamage(EventPlayerGiveDamage obj)
+        {
+            if (obj.ShooterStat.IsLocalPlayer)
+            {
+                Damage(obj.Damage, obj.ReceiverStat.Id, obj.ShooterStat.Id);
+            }
+        }
+
         public void InstantiateLocalPlayer()
         {
-            var instantiated = Instantiate(_localPlayerPrefab);
-            int[] allocatedViewIdArray = new int[instantiated.PhotonViews.Length];
+            int[] allocatedViewIdArray = new int[_localPlayerPrefab.PhotonViews.Length];
             for (int i = 0; i < allocatedViewIdArray.Length; i++)
             {
                 allocatedViewIdArray[i] = PhotonNetwork.AllocateViewID();
             }
-            instantiated.SetOwnerShip(PhotonNetwork.player, allocatedViewIdArray);
-            photonView.RPC("RPC_InstantiateLocalPlayer", PhotonTargets.OthersBuffered, allocatedViewIdArray);
+            photonView.RPC("RPC_InstantiateLocalPlayer", PhotonTargets.AllBufferedViaServer, allocatedViewIdArray);
             PhotonNetwork.isMessageQueueRunning = true;
         }
 
         [PunRPC]
         public void RPC_InstantiateLocalPlayer(int[] viewIdArray, PhotonMessageInfo photonMessageInfo)
         {
-            Debug.Log("Instantiate player " + photonMessageInfo.sender.name);
-            var instantaited = Instantiate(_remotePlayerPrefab);
+            var instantaited = Instantiate(photonMessageInfo.sender.IsLocal ? _localPlayerPrefab : _remotePlayerPrefab);
             instantaited.SetOwnerShip(photonMessageInfo.sender, viewIdArray);
         }
 
@@ -68,9 +75,22 @@ namespace TopDownShooter.Network
             photonView.RPC("RPC_Shoot", PhotonTargets.Others);
         }
 
+        [PunRPC]
         public void RPC_Shoot(Vector3 origin, PhotonMessageInfo photonMessageInfo)
         {
-            MessageBroker.Default.Publish(new EventPlayerShoot(origin, photonMessageInfo.sender.ID));
+            MessageBroker.Default.Publish(new EventPlayerShoot(origin, ScriptableStatManager.Instance.Find(photonMessageInfo.sender.ID)));
+        }
+
+        public void Damage(float dmg, int receiverId, int shooterId)
+        {
+            photonView.RPC("RPC_Damage", PhotonTargets.Others,dmg, receiverId, shooterId);
+        }
+        [PunRPC]
+        public void RPC_Damage(float dmg, int receiver, int shooterId)
+        {
+            var receiverStat = ScriptableStatManager.Instance.Find(receiver);
+            var shooterStat = ScriptableStatManager.Instance.Find(shooterId);
+            receiverStat.Damage(dmg, shooterStat);
         }
     }    
 }

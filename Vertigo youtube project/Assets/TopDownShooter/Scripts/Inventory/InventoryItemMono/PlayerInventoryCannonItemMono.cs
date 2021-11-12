@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TopDownShooter.Stat;
 using UnityEngine;
 
 namespace TopDownShooter.Inventory
@@ -8,9 +9,9 @@ namespace TopDownShooter.Inventory
     public class PlayerInventoryCannonItemMono : AbstractPlayerInventoryItemMono
     {
         [SerializeField] private Transform _cannonShootPoint;
-        public void Shoot(IDamage damage, int shooterId)
+        public void Shoot(IDamage damage, PlayerStat stat)
         {
-            ScriptableShootManager.Instance.Shoot(_cannonShootPoint.position, _cannonShootPoint.forward, damage, shooterId);
+            ScriptableShootManager.Instance.Shoot(_cannonShootPoint.position, _cannonShootPoint.forward, damage, stat);
         }
 
         private void OnDrawGizmos()

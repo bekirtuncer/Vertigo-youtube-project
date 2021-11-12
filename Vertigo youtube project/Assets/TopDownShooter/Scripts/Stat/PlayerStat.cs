@@ -6,9 +6,10 @@ using TopDownShooter.Inventory;
 
 namespace TopDownShooter.Stat
 {
-    public class PlayerStat: IDamageble
+    public class PlayerStat : IDamageble
     {
         public int Id { get; private set; }
+        public bool IsLocalPlayer { get; private set; }
 
         public int InstanceId { get; private set; } = -1;
 
@@ -16,9 +17,11 @@ namespace TopDownShooter.Stat
         public ReactiveProperty<float> Armor = new ReactiveProperty<float>(100);
         public ReactiveCommand OnDeath = new ReactiveCommand();
         private bool _isDead = false;
-        public PlayerStat(int id)
+        public PlayerStat(int id, bool isLocalPlayer)
         {
             Id = id;
+            IsLocalPlayer = isLocalPlayer;
+            ScriptableStatManager.Instance.RegisterStat(this);
         }
 
         public void Damage(IDamage dmg)
@@ -34,9 +37,10 @@ namespace TopDownShooter.Stat
                 Health.Value += Armor.Value;
                 CheckHealth();
             }
+            MessageBroker.Default.Publish(new EventPlayerGiveDamage(dmg.Damage, this, dmg.Stat));
         }
 
-        public void Damage(float dmg)
+        public void Damage(float dmg, PlayerStat shooter)
         {
             if (Armor.Value > 0)
             {
@@ -49,6 +53,7 @@ namespace TopDownShooter.Stat
                 Health.Value += Armor.Value;
                 CheckHealth();
             }
+            MessageBroker.Default.Publish(new EventPlayerGiveDamage(dmg, this, shooter));
         }
 
         private void CheckHealth()

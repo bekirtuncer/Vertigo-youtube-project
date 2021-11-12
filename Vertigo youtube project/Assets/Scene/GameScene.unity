@@ -156,8 +156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 390821036}
-  Health: 100
-  Armor: 100
 --- !u!65 &390821036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -379,8 +377,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 547121434}
-  Health: 200
-  Armor: 100
 --- !u!65 &547121434
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -655,6 +651,7 @@ MonoBehaviour:
   _abstractScriptableManagerArray:
   - {fileID: 11400000, guid: 7e8c954c7104fb24a8353925656fff7b, type: 2}
   - {fileID: 11400000, guid: 860e12181e271a24e9696be7aa238b5e, type: 2}
+  - {fileID: 11400000, guid: 9b8aad08275ea4f4a889e1e504709866, type: 2}
 --- !u!4 &1028077198
 Transform:
   m_ObjectHideFlags: 0
@@ -778,8 +775,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 1068339321}
-  Health: 150
-  Armor: 100
 --- !u!1001 &1625307650
 PrefabInstance:
   m_ObjectHideFlags: 0
